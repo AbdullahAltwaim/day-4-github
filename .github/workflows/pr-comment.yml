@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - env:
-        PR_NUMBER: ${{github.event.pull_request.number}}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN  }}
       run: |
-          gh pr comment $ --body "Hi from GitHub CLI"
+          gh pr comment $ --body "Hi from GitHub CLI" --repo AbdullahAltwaim/day-4-github
       
