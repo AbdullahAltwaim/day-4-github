@@ -13,7 +13,7 @@ jobs:
         GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN  }}
       run: |
           export body=$(curl ifconfig.co/json)
-          export ip=$(echo $body | jp '.ip')
-          export country=$(echo $body | jp '.country')
+          export ip=$(echo $body | jq '.ip')
+          export country=$(echo $body | jq '.country')
           gh pr comment $PR_NUMBER --body "IP address $ip from $country " --repo $GITHUB_REPOSITORY
       
