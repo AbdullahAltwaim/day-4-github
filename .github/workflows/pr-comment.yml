@@ -8,4 +8,9 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+    - env:
+        PR_NUMBER: ${{github.event.pull_request.number}}
+        GH_Token
+      run: |
+          gh pr comment $ --body "Hi from GitHub CLI"
+      
