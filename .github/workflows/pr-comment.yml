@@ -12,7 +12,7 @@ jobs:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN  }}
       run: |
-          export body=$(curl ifconfig/json)
+          export body=$(curl ifconfig.com/json)
           export ip=$(echo $body | jp '.ip')
           export country=$(echo $body | jp '.country')
           gh pr comment $PR_NUMBER --body "IP address $ip from $country " --repo $GITHUB_REPOSITORY
