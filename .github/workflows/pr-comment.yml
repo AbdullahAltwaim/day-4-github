@@ -12,5 +12,5 @@ jobs:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN  }}
       run: |
-          gh pr comment $ --body "Hi from GitHub CLI" --repo AbdullahAltwaim/day-4-github
+          gh pr comment $PR_NUMBER --body "Hi from GitHub CLI" --repo AbdullahAltwaim/day-4-github
       
