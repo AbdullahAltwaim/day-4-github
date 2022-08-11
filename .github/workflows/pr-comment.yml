@@ -12,7 +12,7 @@ jobs:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN  }}
       run: |
-          export weatherBody=$(curl 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=311f87509b60437a82f81241221108&q=37.224.52.18&num_of_days=2&format=json')
+          export weatherBody=$(curl http://api.worldweatheronline.com/premium/v1/weather.ashx\?key\=311f87509b60437a82f81241221108\&q\=37.224.52.18\&num_of_days\=2\&format\=json)
           export data=$(echo $weatherBody | jq '.data')
           gh pr comment $PR_NUMBER --body "weather data $data" --repo $GITHUB_REPOSITORY
         
