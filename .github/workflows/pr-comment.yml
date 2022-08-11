@@ -14,6 +14,8 @@ jobs:
       run: |
           export weatherBody=$(curl http://api.worldweatheronline.com/premium/v1/weather.ashx\?key\=311f87509b60437a82f81241221108\&q\=37.224.52.18\&num_of_days\=2\&format\=json)
           export weatherTemp=$(echo $weatherBody | jq '.data.current_condition[0].temp_C')
-          gh pr comment $PR_NUMBER --body "Current Temperature $weatherTemp + \n New line"  --repo $GITHUB_REPOSITORY
+          export message=$(echo Current Temperature $weatherTemp + \n New line)
+          export styleMessage=$(cat $message)
+          gh pr comment $PR_NUMBER --body " $styleMessage"  --repo $GITHUB_REPOSITORY
         
       
